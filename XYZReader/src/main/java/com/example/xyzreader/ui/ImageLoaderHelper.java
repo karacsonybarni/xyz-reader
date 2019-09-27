@@ -2,16 +2,17 @@ package com.example.xyzreader.ui;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v4.util.LruCache;
+
+import androidx.collection.LruCache;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
-public class ImageLoaderHelper {
+class ImageLoaderHelper {
     private static ImageLoaderHelper sInstance;
 
-    public static ImageLoaderHelper getInstance(Context context) {
+    static ImageLoaderHelper getInstance(Context context) {
         if (sInstance == null) {
             sInstance = new ImageLoaderHelper(context.getApplicationContext());
         }
@@ -19,7 +20,7 @@ public class ImageLoaderHelper {
         return sInstance;
     }
 
-    private final LruCache<String, Bitmap> mImageCache = new LruCache<String, Bitmap>(20);
+    private final LruCache<String, Bitmap> mImageCache = new LruCache<>(20);
     private ImageLoader mImageLoader;
 
     private ImageLoaderHelper(Context applicationContext) {
@@ -38,7 +39,7 @@ public class ImageLoaderHelper {
         mImageLoader = new ImageLoader(queue, imageCache);
     }
 
-    public ImageLoader getImageLoader() {
+    ImageLoader getImageLoader() {
         return mImageLoader;
     }
 }
