@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:paddingTop="@dimen/article_list_paddingTop"
             android:paddingLeft="@dimen/list_side_margin"
+            android:paddingTop="@dimen/article_list_paddingTop"
             android:paddingRight="@dimen/list_side_margin"
             android:paddingBottom="@dimen/article_list_paddingBottom"
             android:scrollbarStyle="outsideOverlay" />
@@ -30,8 +30,6 @@
             android:id="@+id/toolbar_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?colorPrimary"
-            app:contentScrim="?attr/colorPrimary"
             app:expandedTitleGravity="top"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
