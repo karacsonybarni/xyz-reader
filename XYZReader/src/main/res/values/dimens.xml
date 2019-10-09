@@ -4,7 +4,6 @@
     <dimen name="detail_body_text_size">22sp</dimen>
     <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
 
-    <dimen name="fab_elevation">2dp</dimen>
     <dimen name="fab_press_translation_z">6dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
 
@@ -14,5 +13,7 @@
     <dimen name="article_title_textSize">21sp</dimen>
     <dimen name="article_date_textSize">16sp</dimen>
     <dimen name="article_card_height">272dp</dimen>
+
+    <dimen name="fab_size">56dp</dimen>
 
 </resources>

@@ -23,7 +23,7 @@
     <color name="colorAccent">#FF6D00</color>
 
     <color name="detailStatusBar">#4D000000</color>
-    <color name="ltgray">#ffe0e0e0</color>
+    <color name="article_textColor">@color/secondaryText</color>
     
     <color name="primaryText">#DE000000</color>
     <color name="secondaryText">#99000000</color>
