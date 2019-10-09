@@ -11,5 +11,8 @@
     <dimen name="article_list_app_bar_height">112dp</dimen>
     <dimen name="article_list_paddingTop">8dp</dimen>
     <dimen name="article_list_paddingBottom">28dp</dimen>
+    <dimen name="article_title_textSize">21sp</dimen>
+    <dimen name="article_date_textSize">16sp</dimen>
+    <dimen name="article_card_height">272dp</dimen>
 
 </resources>
