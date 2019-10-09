@@ -48,11 +48,6 @@ public class ObservableScrollView extends ScrollView {
         }
     }
 
-    @Override
-    public int computeVerticalScrollRange() {
-        return super.computeVerticalScrollRange();
-    }
-
     public void setCallbacks(Callbacks listener) {
         mCallbacks = listener;
     }
