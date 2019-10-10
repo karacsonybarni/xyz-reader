@@ -1,4 +1,5 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="4dp"
@@ -9,11 +10,10 @@
     android:focusable="true"
     android:foreground="?selectableItemBackground">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/article_card_height"
-        android:orientation="vertical">
+        android:minHeight="@dimen/article_card_height">
 
         <!--suppress AndroidLintContentDescription -->
         <com.example.xyzreader.ui.DynamicHeightNetworkImageView
@@ -21,13 +21,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/photo_placeholder"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/article_title"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_vertical"
@@ -37,13 +37,14 @@
             android:paddingRight="16dp"
             android:paddingBottom="4dp"
             android:textColor="@color/primaryText"
-            android:textSize="@dimen/article_title_textSize" />
+            android:textSize="@dimen/article_title_textSize"
+            app:layout_constraintBottom_toTopOf="@+id/article_subtitle"
+            app:layout_constraintTop_toBottomOf="@+id/thumbnail" />
 
         <TextView
             android:id="@+id/article_subtitle"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="2"
@@ -51,7 +52,8 @@
             android:paddingRight="16dp"
             android:paddingBottom="16dp"
             android:textColor="@color/secondaryText"
-            android:textSize="@dimen/article_date_textSize" />
-    </LinearLayout>
+            android:textSize="@dimen/article_date_textSize"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
