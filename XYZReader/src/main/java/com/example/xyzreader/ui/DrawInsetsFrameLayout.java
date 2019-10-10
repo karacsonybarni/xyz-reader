@@ -33,13 +33,9 @@ import com.example.xyzreader.R;
 
 public class DrawInsetsFrameLayout extends FrameLayout {
     private Drawable mInsetBackground;
-    private Drawable mTopInsetBackground;
-    private Drawable mBottomInsetBackground;
-    private Drawable mSideInsetBackground;
 
     @Nullable private Rect mInsets;
     private Rect mTempRect = new Rect();
-    private OnInsetsCallback mOnInsetsCallback;
 
     public DrawInsetsFrameLayout(Context context) {
         super(context);
@@ -65,19 +61,6 @@ public class DrawInsetsFrameLayout extends FrameLayout {
         a.recycle();
     }
 
-    public void setInsetBackground(Drawable insetBackground) {
-        if (mInsetBackground != null) {
-            mInsetBackground.setCallback(null);
-        }
-
-        if (insetBackground != null) {
-            insetBackground.setCallback(this);
-        }
-
-        mInsetBackground = insetBackground;
-        postInvalidateOnAnimation();
-    }
-
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -97,25 +80,16 @@ public class DrawInsetsFrameLayout extends FrameLayout {
         }
     }
 
-    public void setOnInsetsCallback(OnInsetsCallback onInsetsCallback) {
-        mOnInsetsCallback = onInsetsCallback;
-    }
-
     @Override
     public WindowInsets onApplyWindowInsets(WindowInsets insets) {
         insets = super.onApplyWindowInsets(insets);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
-            mInsets = new Rect(
-                    insets.getSystemWindowInsetLeft(),
-                    insets.getSystemWindowInsetTop(),
-                    insets.getSystemWindowInsetRight(),
-                    insets.getSystemWindowInsetBottom());
-        }
+        mInsets = new Rect(
+                insets.getSystemWindowInsetLeft(),
+                insets.getSystemWindowInsetTop(),
+                insets.getSystemWindowInsetRight(),
+                insets.getSystemWindowInsetBottom());
         setWillNotDraw(false);
         postInvalidateOnAnimation();
-        if (mOnInsetsCallback != null) {
-            mOnInsetsCallback.onInsetsChanged(mInsets);
-        }
         return insets;
     }
 
@@ -154,9 +128,5 @@ public class DrawInsetsFrameLayout extends FrameLayout {
                 mInsetBackground.draw(canvas);
             }
         }
-    }
-
-    public interface OnInsetsCallback {
-        void onInsetsChanged(Rect insets);
     }
 }
