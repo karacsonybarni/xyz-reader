@@ -14,6 +14,7 @@
     <dimen name="article_date_textSize">16sp</dimen>
     <dimen name="article_card_height">272dp</dimen>
 
+    <dimen name="article_content_elevation">2dp</dimen>
     <dimen name="fab_size">56dp</dimen>
 
 </resources>
